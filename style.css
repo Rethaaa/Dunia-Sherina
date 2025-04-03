@@ -59,11 +59,11 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--clr3);
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     position: absolute;
-    z-index: 100;
+    z-index: 600;
 } 
 .typewriter {
     --key: #fff;
@@ -270,7 +270,7 @@ nav {
     background-color: #c1561479;
     backdrop-filter: blur(3px);
     box-shadow: 0 -3px 10px #000;
-    z-index: 99;
+    z-index: 500;
 }
 nav .nav-logo img {
     width: 50px;
@@ -538,10 +538,6 @@ nav .corner {
 .leaf {
     width: 100%;
 }
-.us-text {
-    position: absolute;
-    margin: 15vh;
-}
 
 /* content */
 .content {
@@ -562,7 +558,7 @@ nav .corner {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
     color: var(--clr1);
     hr {
         width: 100%;
@@ -576,6 +572,10 @@ nav .corner {
         font-size: 1.5rem;
     }
 }
+.us-text {
+    margin-top: 10vh;
+    z-index: 300;
+}
 .about-us iframe {
     z-index: 300;
 }
@@ -583,7 +583,6 @@ nav .corner {
 /* member card */
 .members {
     width: 100%;
-    margin: 20vw 0 50px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -604,7 +603,8 @@ nav .corner {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     z-index: 100;
-    /* overflow: visible; */
+    overflow: visible;
+    z-index: 300;
 }
 .member > * {
     grid-area: stack;
