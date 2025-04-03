@@ -18,16 +18,3 @@ if (window.innerWidth <= 1150) {
         });
     });
 }
-
-
-
-// const dropdownBtns = document.querySelectorAll(".dropdown-btn");
-// dropdownBtns.forEach(btn => {
-//     btn.addEventListener("click", event => {
-//         const dropdownList = document.querySelectorAll(".dropdown-list");
-//         dropdownList.classList.toggle("open");
-//         // dropdownLists.forEach(list => {
-//         // });
-//         console.log("open");
-//     });
-// });
