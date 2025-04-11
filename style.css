@@ -46,6 +46,11 @@ h5 {
     font-family: "Rowdies", sans-serif;
     font-size: 1.333rem;
 }
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
 body { 
     background-color: var(--white);
     overflow-x: hidden;
@@ -297,6 +302,10 @@ nav .nav-list a, .dropdown-btn {
 }
 nav .nav-list a:hover, .dropdown-btn:hover {
     color: var(--white);
+    background-color: var(--clr4);
+}
+.dropdown .dropdown-list a:hover {
+    color: var(--white);
     background-color: var(--clr5);
 }
 .dropdown {
@@ -320,7 +329,7 @@ nav .nav-list a:hover, .dropdown-btn:hover {
     color: var(--white);
 }
 .dropdown:hover .dropdown-btn {
-    background-color: var(--clr5);
+    background-color: var(--clr4);
     cursor: default;
 }
 .dropdown:hover .dropdown-list {
@@ -328,6 +337,9 @@ nav .nav-list a:hover, .dropdown-btn:hover {
 }
 .dropdown:hover .dropdown-btn i.fa.fa-chevron-down {
     transform: rotate(-180deg);
+}
+nav .corner {
+    margin-right: 50px;
 }
 .nav-view {
     display: none;
@@ -388,10 +400,6 @@ nav .nav-list a:hover, .dropdown-btn:hover {
     transition-delay: 0s,calc(0s + 0.35s);
     background: var(--white);
 }
-nav .corner {
-    display: flex;
-    gap: 50px;
-}
 .nav-list.slide {
     transform: translateX(0);
 }
@@ -412,7 +420,11 @@ nav .corner {
     height: 100vh;
 }
 .banner-img {
+    width: 100%;
     height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
 }
 
 /* parallax */
@@ -422,12 +434,10 @@ nav .corner {
     width: 100%;
     height: 100%;
     display: flex;
-    /* grid-template-areas: "stack"; */
     justify-content: center;
     align-items: center;
 }
 .parallax > * {
-    /* grid-area: stack; */
     animation: parallax linear;
     animation-timeline: scroll();
 }
@@ -551,7 +561,7 @@ nav .corner {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 50px;
     z-index: 300;
 }
 .member {
@@ -568,6 +578,7 @@ nav .corner {
     transition: all 0.3s ease-in-out;
     z-index: 100;
     overflow: visible;
+    scale: 0.7;
     z-index: 300;
 }
 .member > * {
@@ -617,6 +628,7 @@ nav .corner {
     height: 330px;
     border-radius: 10px;
     padding: 140px 50px 50px 50px;
+    cursor: default;
 }
 .member:hover .member-img {
     scale: 1.5;
@@ -629,6 +641,8 @@ nav .corner {
 }
 .member:hover .member-img img {
     border-radius: 15px;
+    width: 100%;
+    height: 100%;
 }
 .member:hover .member-desc {
     opacity: 1;
@@ -641,6 +655,9 @@ nav .corner {
 }
 .member-desc a:hover {
     color: var(--clr5);
+    .spot-code {
+        fill: var(--clr5);
+    }
 }
 
 /* spotify code */
@@ -649,6 +666,7 @@ nav .corner {
 }
 .spot-code {
     fill: var(--clr1);
+    transition: all 0.3s ease-in-out;
 }
 
 /* abstract */
@@ -666,10 +684,23 @@ nav .corner {
     flex-direction: column;
     gap: 1rem;
     max-width: 120ch;
-    /* text-align: justify; */
+    padding: 20px 30px;
+    background: #f5f9e9aa;
     p {
         text-indent: 3rem;
+        line-height: 1.8;
     }
+}
+.abstract-content u {
+    display: inline;
+    border-radius: 0.25em;
+    background: linear-gradient(90deg, var(--clr1), #1f9856);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.125em 0.25em;
+    border: 1px dotted var(--black);
+    --webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 /* pendahuluan */
@@ -725,9 +756,6 @@ nav .corner {
     align-items: center;
     flex-direction: column;
     gap: 30px;
-}
-.tujuan .content-title {
-    align-self: flex-end;
 }
 .tujuan-content {
     display: flex;
@@ -789,6 +817,8 @@ nav .corner {
 }
 .manfaat-container .text {
     width: 500px;
+    padding: 20px 30px;
+    background: #f5f9e9aa;
 }
 
 /* rencana kegiatan */
@@ -823,14 +853,179 @@ nav .corner {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+.produksi-content .up, .produksi-content .middle-content, .produksi-content .down {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.produksi-content .up, .produksi-content .down {
+    width: 100%;
+    color: var(--white);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.middle-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.produksi-content .middle-content .left {
+    width: 400px;
+    color: var(--white);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.produksi-content .card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.produksi-content .card .cover {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    h5 {
+        background-color: var(--clr5);
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+}
+.produksi-content .card .cover:hover {
+    scale: 1.2;
+}
+.produksi-content .card .cover img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+.produksi-content .card .desc {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px 40px;
+    max-width: 700px;
+    max-height: 60vh;
+    background-color: var(--clr3);
+    box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    text-align: center;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+}
+.produksi-content .card .open {
+    z-index: 99;
+    opacity: 1;
+}
+.produksi-content .card .desc img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+.produksi-content .card .desc .closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.produksi-content .card .desc .closeBtn:hover {
+    background-color: #ffffff50;
+}
+.produksi-content .desc img {
+    flex-wrap: wrap;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.produksi-content .middle-content .right {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
     text-align: justify;
-    max-width: 1000px;
+    max-width: 750px;
     background: #f5f9e9aa;
     padding: 20px 30px;
     p {
         text-indent: 2rem;
     }
+}
+.produksi-content .bottom {
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: justify;
+    width: 100%;
+    background: #f5f9e9aa;
+    padding: 20px 30px;
+    p {
+        text-indent: 2rem;
+        color: var(--black);
+    }
+    li {
+        color: var(--black);
+        line-height: 1.8;
+    }
+}
+.produksi-content .bottom .split {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.produksi-content .bottom .split .left {
+    max-width: 700px;
+}
+.produksi-content .bottom .split .right {
+    max-width: 300px;
+    img {
+        width: 300px;
+    }
+}
+.produksi-content .bottom u {
+    display: inline;
+    border-radius: 0.25em;
+    background: linear-gradient(90deg, var(--clr1), #1f9856);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.125em 0.25em;
+    border: 1px dotted var(--black);
+    --webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 /* promosi */
@@ -839,6 +1034,7 @@ nav .corner {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    padding-top: 100px;
     width: 100%;
     gap: 30px;
 }
@@ -858,7 +1054,7 @@ nav .corner {
     flex-wrap: wrap;
     gap: 1rem;
     text-align: justify;
-    max-width: 800px;
+    max-width: 650px;
     p {
         text-indent: 2rem;
         background: #f5f9e9aa;
@@ -872,13 +1068,18 @@ nav .corner {
     align-items: center;
     gap: 20px;
     align-items: center;
-    width: 600px;
+    width: 500px;
 }
-.promosi-content .video video, .promosi-content .video img {
+.promosi-content .video img.poster {
+    background-color: transparent;
+    object-fit: contain;
+}
+.promosi-content .video iframe, .promosi-content .video img {
     background-color: white;
-    width: 250px;
-    height: 200px;
+    width: 230px;
+    height: 300px;
     object-fit: cover;
+    border: none;
 }
 
 /* booth */
@@ -887,6 +1088,7 @@ nav .corner {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
+    padding-top: 100px;
     width: 100%;
     gap: 30px;
     margin-bottom: 100px;
@@ -916,7 +1118,7 @@ nav .corner {
     justify-content: center;
     background: #f5f9e9aa;
     padding: 20px 30px;
-    max-width: 1000px;
+    max-width: 700px;
     p {
         text-indent: 2rem;
     }
@@ -1022,8 +1224,8 @@ nav .corner {
     white-space: normal;
 }
 .pelaksanaan-container img, .pelaksanaan-container-middle img {
-    width: 1000px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -1391,14 +1593,54 @@ nav .corner {
 .statistik::before {
     content: "";
     position: absolute;
+    display: block;
     width: 100%;
-    height: 200px;
+    height: 110px;
+    overflow: hidden;
+    white-space: nowrap;
     background: url(img/hasil\ kegiatan/statistik\ penjualan.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    top: -200px;
+    top: -109px;
     left: 0;
+}
+.pengolahan-data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    p {
+        text-indent: 2rem;
+    }
+}
+.pengolahan-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    justify-content: center;
+    gap: 30px;
+}
+.statistik .card {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(315deg, var(--clr5), var(--clr4));
+    color: var(--clr3);
+    padding: 20px 30px;
+    border-radius: 15px;
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    p {
+        text-indent: 0;
+    }
 }
 
 /* tabel penjualan */
@@ -1494,7 +1736,7 @@ nav .corner {
 /* data lingkaran */
 .data-lingkaran {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     gap: 50px;
     flex-wrap: wrap;
@@ -1504,7 +1746,10 @@ nav .corner {
     color: var(--white);
     padding: 20px 30px;
     border-radius: 15px;
-    width: 300px;
+    width: 210px;
+    h5 {
+        text-align: center;
+    }
 }
 .data-lingkaran .card:nth-child(4n+1), .data-lingkaran .card:nth-child(4n+4) {
     background-color: var(--clr5);
@@ -1512,7 +1757,7 @@ nav .corner {
 .derajat, .persentase {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -1542,10 +1787,12 @@ nav .corner {
 .refleksi-content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 50px;
 }
 .refleksi-content .left {
-    max-width: 800px;
+    max-width: 650px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1555,16 +1802,46 @@ nav .corner {
 }
 .refleksi-content .right {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    overflow-x: auto;
+    img {
+        max-width: 400px;
+    }
+}
+.refleksi-content .down {
+    width: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
     word-wrap: break-word;
-    width: 400px;
-    overflow-x: auto;
-    img {
-        max-width: 400px;
+    h4 {
+        text-align: center;
+    }
+}
+.refleksi-content .down-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    word-wrap: break-word;
+    .down-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .quote {
+        font-size: 0.8rem;
+        font-style: italic;
+    }
+}
+.refleksi-content .down-content .down-container {
+    p {
+        text-indent: 0;
     }
 }
 
@@ -1576,7 +1853,7 @@ nav .corner {
     background-color: var(--clr5);
     width: 100%;
     overflow: visible;
-    padding-bottom: 100px;
+    padding: 100px 0;
 }
 .bioteknologi .content-title {
     background-color: var(--clr5);
@@ -1612,7 +1889,7 @@ nav .corner {
     display: block;
     background-color: var(--clr5);
     color: var(--white);
-    padding: 20px 40px 20px 30px;
+    padding: 20px 40px;
     max-width: 100%;
     width: 100%;
     white-space: normal;
@@ -1633,6 +1910,18 @@ nav .corner {
     color: var(--white);
     max-width: 100%;
     width: 100%;
+    line-height: 1.8;
+    u {
+        display: inline;
+        border-radius: 0.25em;
+        background: linear-gradient(90deg, var(--clr1), #1f9856);
+        color: var(--white);
+        text-decoration: none;
+        padding: 0.125em 0.25em;
+        border: 1px dotted var(--black);
+        --webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+    }
 }
 ul, ol {
     padding-left: 1.5rem;
@@ -1647,10 +1936,10 @@ ul.ul1 {
 ul.ul1 li {
     display: list-item;
 }
-.bioteknologi-container video {
+.bioteknologi-container iframe {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    padding: 20px 40px;
+    border: none;
 }
 
 /* penutup */
@@ -1662,7 +1951,7 @@ ul.ul1 li {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    padding: 100px 50px 40px 50px;
+    padding: 100px 50px 300px 50px;
 }
 .penutup-title {
     width: 50%;
@@ -1694,6 +1983,10 @@ ul.ul1 li {
     padding: 50px 50px;
     background-color: #c15614c8;
     color: var(--white);
+    p {
+        padding-left: 2rem;
+        text-indent: -2rem;
+    }
     h3, h4 { 
         text-align: center;
     }
@@ -1833,7 +2126,6 @@ footer {
 /* responsive */
 @media only screen and (max-width: 1194px) {
     nav {
-        /* position: fixed; */
         width: 100vw;
         padding: 10px 20px;
     }
@@ -1887,7 +2179,7 @@ footer {
     nav .nav-logo img {
         scale: 0.7;
     }
-    nav .corner {
+    nav .nav-view {
         scale: 0.7;
     }
 }
@@ -1927,30 +2219,13 @@ footer {
         right: 0;
         background: linear-gradient(0deg, var(--clr5), #00000000);
     }
-    .bioteknologi-container video {
+    .bioteknologi-container iframe {
         width: 100%;
         height: 400px;
-    }
-    .bioteknologi-container::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100px;
-        left: 0;
-        bottom: 300px;
-        background: linear-gradient(180deg, var(--clr5), #00000000);
     }
 }
 @media only screen and (max-width: 550px) {
     .about-us {
         padding: 30px 0 250px 0;
-    }
-    .member {
-        scale: 0.9;
-    }
-}
-@media only screen and (max-width: 430px) {
-    .member {
-        scale: 0.8;
     }
 }
